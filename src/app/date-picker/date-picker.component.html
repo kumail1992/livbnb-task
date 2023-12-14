@@ -1,0 +1,18 @@
+<h2 mat-dialog-title class="text-center">Choose a start date</h2>
+<mat-calendar
+  [minDate]="minDate"
+  [maxDate]="maxDate"
+  [(selected)]="selected"
+  [startAt]="selected"
+></mat-calendar>
+
+<mat-dialog-actions align="end">
+  <button
+    class="m-3"
+    color="primary"
+    mat-flat-button
+    (click)="dialogRef.close(selected)"
+  >
+    Apply
+  </button>
+</mat-dialog-actions>
