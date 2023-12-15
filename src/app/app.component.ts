@@ -4,22 +4,25 @@ import { addMonths, startOfMonth } from 'date-fns';
 import * as $ from 'jquery';
 import 'round-slider';
 import { DatePickerComponent } from './date-picker/date-picker.component';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [DatePipe],
 })
 export class AppComponent implements OnInit {
   _dialog = inject(MatDialog);
   startDate!: Date;
   endDate!: Date;
   ngOnInit() {
-    this.init();
+    this.initializeSlider();
     this.setupDates(new Date(), true);
   }
 
-  init() {
+  initializeSlider() {
     let slider: any = $('#monthWidget');
     slider.roundSlider({
       sliderType: 'min-range',
